@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.example.googlemaps.BuildConfig
 import com.example.googlemaps.R
 import com.example.googlemaps.databinding.FragmentGoogleMapsBinding
 import com.example.googlemaps.utils.await
@@ -51,12 +52,12 @@ class GoogleMapsFragment : Fragment(R.layout.fragment_google_maps), OnMapReadyCa
         // Initialize the SDK
         Places.initialize(
             requireContext().applicationContext,
-            getString(R.string.google_maps_key)
+            //Нужен MAPS_API_KEY
+            BuildConfig.MAPS_API_KEY
         )
 
         // Create a new PlacesClient instance
         placesClient = Places.createClient(requireContext())
-
         mapView = viewBinding.mpMap
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
@@ -99,7 +100,6 @@ class GoogleMapsFragment : Fragment(R.layout.fragment_google_maps), OnMapReadyCa
                     (polygon.coordinates as ArrayList<ArrayList<LatLng>>).add(outer)
                 }
             }
-
             layer.defaultPolygonStyle.strokeColor = Color.BLUE
             layer.addLayerToMap()
             animateCameraToRandomFeaturePosition(googleMap, layer)

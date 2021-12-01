@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GMaps</string>
+    <string name="loading">Загрузка</string>
+    <string name="distance">Расстояние:\n%.2f км.</string>
+</resources>

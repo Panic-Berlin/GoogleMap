@@ -1,6 +1,7 @@
 # GoogleMap
 ## Важно:
-- Для работы приложения необходимо Google Maps Api Key и Google Api Direction
+- Для работы приложения необходимо Google Maps Api Key и Google Api Direction.
+- Создайте переменную в local.property под названием MAPS_API_KEY, что бы получилось: MAPS_API_KEY = Ваш ключ и все будет работать
 ## В проекте используется:
 - GeoJsonLayer
 - Retrofit
